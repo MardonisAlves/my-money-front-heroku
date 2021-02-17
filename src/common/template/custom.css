@@ -1,0 +1,23 @@
+.main-footer {
+position: fixed;
+bottom:0px;
+width:100%;
+}
+
+button {
+    margin-left: 2px;
+}
+.buttonactions {
+    height: 20%;
+   
+
+}
+
+.buttonactions i{
+    align-items: center;
+    text-align: center;
+}
+
+.table-action {
+    width: 150px;
+}
