@@ -8,6 +8,7 @@ export function login(values) {
 
 
 export function signup(values) {
+    console.log('url')
     return submit(values, `${consts.OAPI_URL}/signup`)
 }
 
