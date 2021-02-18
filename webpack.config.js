@@ -1,10 +1,9 @@
-const modoDev = process.env.NODE_ENV !== 'production'
+
 const webpack = require('webpack')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = {
-    mode: modoDev ? 'development' : 'production',
-    
+  
     entry: './src/index.jsx',
         output: {
         path: __dirname + '/public',
