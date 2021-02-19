@@ -32,6 +32,9 @@ function submit(values, url) {
 export function logout() {
     return { type: 'TOKEN_VALIDATED', payload: false }
 }
+
+
+
 export function validateToken(token) {
     return dispatch => {
         if (token) {
