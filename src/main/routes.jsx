@@ -4,7 +4,7 @@ import { Router, Route, IndexRoute, Redirect, hashHistory } from 'react-router'
 import AuthOrApp from './authOrApp'
 import Dashboard from '../dashboard/dashboard'
 // dashboard sem redux
-import Dashboard2  from '../dashboard2/dashboard2'
+//import Dashboard2  from '../dashboard2/dashboard2'
 import BillingCycle from '../billingCycle/billingCycle'
 
 export default props => (
