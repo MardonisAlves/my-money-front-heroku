@@ -74,7 +74,7 @@
 
 	var _routes2 = _interopRequireDefault(_routes);
 
-	var _reducers = __webpack_require__(599);
+	var _reducers = __webpack_require__(598);
 
 	var _reducers2 = _interopRequireDefault(_reducers);
 
@@ -24087,17 +24087,12 @@
 
 	var _dashboard2 = _interopRequireDefault(_dashboard);
 
-	var _dashboard3 = __webpack_require__(584);
-
-	var _dashboard4 = _interopRequireDefault(_dashboard3);
-
-	var _billingCycle = __webpack_require__(585);
+	var _billingCycle = __webpack_require__(584);
 
 	var _billingCycle2 = _interopRequireDefault(_billingCycle);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	// dashboard sem redux
 	exports.default = function (props) {
 	    return _react2.default.createElement(
 	        _reactRouter.Router,
@@ -24111,6 +24106,8 @@
 	        _react2.default.createElement(_reactRouter.Redirect, { from: '*', to: '/' })
 	    );
 	};
+	// dashboard sem redux
+	//import Dashboard2  from '../dashboard2/dashboard2'
 
 /***/ },
 /* 217 */
@@ -31913,11 +31910,12 @@
 	}
 
 	function signup(values) {
-	    console.log('url');
+
 	    return submit(values, _const2.default.OAPI_URL + '/signup');
 	}
 
 	function submit(values, url) {
+
 	    return function (dispatch) {
 	        _axios2.default.post(url, values).then(function (resp) {
 	            dispatch([{ type: 'USER_FETCHED', payload: resp.data }]);
@@ -31932,6 +31930,7 @@
 	function logout() {
 	    return { type: 'TOKEN_VALIDATED', payload: false };
 	}
+
 	function validateToken(token) {
 	    return function (dispatch) {
 	        if (token) {
@@ -33914,7 +33913,9 @@
 	    value: true
 	});
 	exports.default = {
+
 	    API_URL: 'https://moneycycle.herokuapp.com/api',
+
 	    OAPI_URL: 'https://moneycycle.herokuapp.com/oapi'
 	};
 
@@ -44933,104 +44934,6 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _axios = __webpack_require__(313);
-
-	var _axios2 = _interopRequireDefault(_axios);
-
-	var _contentHeader = __webpack_require__(581);
-
-	var _contentHeader2 = _interopRequireDefault(_contentHeader);
-
-	var _content = __webpack_require__(582);
-
-	var _content2 = _interopRequireDefault(_content);
-
-	var _valueBox = __webpack_require__(583);
-
-	var _valueBox2 = _interopRequireDefault(_valueBox);
-
-	var _row = __webpack_require__(575);
-
-	var _row2 = _interopRequireDefault(_row);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var BASE_URL = 'http://localhost:3003/api';
-
-	var Dashboard2 = function (_Component) {
-	    _inherits(Dashboard2, _Component);
-
-	    function Dashboard2(props) {
-	        _classCallCheck(this, Dashboard2);
-
-	        var _this = _possibleConstructorReturn(this, (Dashboard2.__proto__ || Object.getPrototypeOf(Dashboard2)).call(this, props));
-
-	        _this.state = { credit: 0, debt: 0 };
-	        return _this;
-	    }
-
-	    _createClass(Dashboard2, [{
-	        key: 'componentWillMount',
-	        value: function componentWillMount() {
-	            var _this2 = this;
-
-	            _axios2.default.get(BASE_URL + '/billingCycles/summary').then(function (resp) {
-	                return _this2.setState(resp.data);
-	            });
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            var _state = this.state,
-	                credit = _state.credit,
-	                debt = _state.debt;
-
-	            return _react2.default.createElement(
-	                'div',
-	                null,
-	                _react2.default.createElement(_contentHeader2.default, { title: 'Dashboard', small: 'Vers\xE3o 2.0' }),
-	                _react2.default.createElement(
-	                    _content2.default,
-	                    null,
-	                    _react2.default.createElement(
-	                        _row2.default,
-	                        null,
-	                        _react2.default.createElement(_valueBox2.default, { cols: '4 4', color: 'green', icon: 'bank', value: 'R$ ' + credit, text: 'Total de Cr\xE9ditos' }),
-	                        _react2.default.createElement(_valueBox2.default, { cols: '4 4', color: 'red', icon: 'credit-card', value: 'R$ ' + debt, text: 'Total de D\xE9bitos' }),
-	                        _react2.default.createElement(_valueBox2.default, { cols: '4 4', color: 'blue', icon: 'money', value: 'R$ ' + (credit - debt), text: 'Valor Consolidado' })
-	                    )
-	                )
-	            );
-	        }
-	    }]);
-
-	    return Dashboard2;
-	}(_react.Component);
-
-	exports.default = Dashboard2;
-
-/***/ },
-/* 585 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
 	var _redux = __webpack_require__(178);
 
 	var _reactRedux = __webpack_require__(198);
@@ -45043,33 +44946,33 @@
 
 	var _content2 = _interopRequireDefault(_content);
 
-	var _tabs = __webpack_require__(586);
+	var _tabs = __webpack_require__(585);
 
 	var _tabs2 = _interopRequireDefault(_tabs);
 
-	var _tabsHeader = __webpack_require__(587);
+	var _tabsHeader = __webpack_require__(586);
 
 	var _tabsHeader2 = _interopRequireDefault(_tabsHeader);
 
-	var _tabsContent = __webpack_require__(588);
+	var _tabsContent = __webpack_require__(587);
 
 	var _tabsContent2 = _interopRequireDefault(_tabsContent);
 
-	var _tabHeader = __webpack_require__(589);
+	var _tabHeader = __webpack_require__(588);
 
 	var _tabHeader2 = _interopRequireDefault(_tabHeader);
 
-	var _tabContent = __webpack_require__(591);
+	var _tabContent = __webpack_require__(590);
 
 	var _tabContent2 = _interopRequireDefault(_tabContent);
 
-	var _billingCycleActions = __webpack_require__(592);
+	var _billingCycleActions = __webpack_require__(591);
 
-	var _billingCycleList = __webpack_require__(593);
+	var _billingCycleList = __webpack_require__(592);
 
 	var _billingCycleList2 = _interopRequireDefault(_billingCycleList);
 
-	var _billingCycleForm = __webpack_require__(594);
+	var _billingCycleForm = __webpack_require__(593);
 
 	var _billingCycleForm2 = _interopRequireDefault(_billingCycleForm);
 
@@ -45155,7 +45058,7 @@
 	exports.default = (0, _reactRedux.connect)(null, mapDispatchToProps)(BillingCycle);
 
 /***/ },
-/* 586 */
+/* 585 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -45179,7 +45082,7 @@
 	};
 
 /***/ },
-/* 587 */
+/* 586 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -45203,7 +45106,7 @@
 	};
 
 /***/ },
-/* 588 */
+/* 587 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -45227,7 +45130,7 @@
 	};
 
 /***/ },
-/* 589 */
+/* 588 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -45250,7 +45153,7 @@
 
 	var _if2 = _interopRequireDefault(_if);
 
-	var _tabActions = __webpack_require__(590);
+	var _tabActions = __webpack_require__(589);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -45309,7 +45212,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(TabHeader);
 
 /***/ },
-/* 590 */
+/* 589 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -45344,7 +45247,7 @@
 	}
 
 /***/ },
-/* 591 */
+/* 590 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -45411,7 +45314,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(TabContent);
 
 /***/ },
-/* 592 */
+/* 591 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -45435,7 +45338,7 @@
 
 	var _reduxForm = __webpack_require__(372);
 
-	var _tabActions = __webpack_require__(590);
+	var _tabActions = __webpack_require__(589);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -45491,7 +45394,7 @@
 	}
 
 /***/ },
-/* 593 */
+/* 592 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -45510,7 +45413,7 @@
 
 	var _reactRedux = __webpack_require__(198);
 
-	var _billingCycleActions = __webpack_require__(592);
+	var _billingCycleActions = __webpack_require__(591);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -45641,7 +45544,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(BillingCycleList);
 
 /***/ },
-/* 594 */
+/* 593 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -45660,19 +45563,19 @@
 
 	var _redux = __webpack_require__(178);
 
-	var _billingCycleActions = __webpack_require__(592);
+	var _billingCycleActions = __webpack_require__(591);
 
 	var _reduxForm = __webpack_require__(372);
 
-	var _labelAndInput = __webpack_require__(595);
+	var _labelAndInput = __webpack_require__(594);
 
 	var _labelAndInput2 = _interopRequireDefault(_labelAndInput);
 
-	var _itemList = __webpack_require__(596);
+	var _itemList = __webpack_require__(595);
 
 	var _itemList2 = _interopRequireDefault(_itemList);
 
-	var _summaty = __webpack_require__(598);
+	var _summaty = __webpack_require__(597);
 
 	var _summaty2 = _interopRequireDefault(_summaty);
 
@@ -45770,7 +45673,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(BillingCycleForm);
 
 /***/ },
-/* 595 */
+/* 594 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -45812,7 +45715,7 @@
 	};
 
 /***/ },
-/* 596 */
+/* 595 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -45837,7 +45740,7 @@
 
 	var _grid2 = _interopRequireDefault(_grid);
 
-	var _input = __webpack_require__(597);
+	var _input = __webpack_require__(596);
 
 	var _input2 = _interopRequireDefault(_input);
 
@@ -46017,7 +45920,7 @@
 	exports.default = (0, _reactRedux.connect)(null, mapDispatchToProps)(ItemList);
 
 /***/ },
-/* 597 */
+/* 596 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -46043,7 +45946,7 @@
 	};
 
 /***/ },
-/* 598 */
+/* 597 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -46099,7 +46002,7 @@
 	};
 
 /***/ },
-/* 599 */
+/* 598 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -46114,19 +46017,19 @@
 
 	var _reactReduxToastr = __webpack_require__(342);
 
-	var _dashboardReducer = __webpack_require__(600);
+	var _dashboardReducer = __webpack_require__(599);
 
 	var _dashboardReducer2 = _interopRequireDefault(_dashboardReducer);
 
-	var _tabReducers = __webpack_require__(601);
+	var _tabReducers = __webpack_require__(600);
 
 	var _tabReducers2 = _interopRequireDefault(_tabReducers);
 
-	var _billingCycleReducer = __webpack_require__(602);
+	var _billingCycleReducer = __webpack_require__(601);
 
 	var _billingCycleReducer2 = _interopRequireDefault(_billingCycleReducer);
 
-	var _authReducer = __webpack_require__(603);
+	var _authReducer = __webpack_require__(602);
 
 	var _authReducer2 = _interopRequireDefault(_authReducer);
 
@@ -46144,7 +46047,7 @@
 	exports.default = rootReducers;
 
 /***/ },
-/* 600 */
+/* 599 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -46171,7 +46074,7 @@
 	var INITIAL_STATE = { summary: { credit: 0, debt: 0 } };
 
 /***/ },
-/* 601 */
+/* 600 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -46203,7 +46106,7 @@
 	};
 
 /***/ },
-/* 602 */
+/* 601 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -46231,7 +46134,7 @@
 	};
 
 /***/ },
-/* 603 */
+/* 602 */
 /***/ function(module, exports) {
 
 	'use strict';
