@@ -8,12 +8,13 @@ export function login(values) {
 
 
 export function signup(values) {
-    console.log('url')
+      console.log(values)
     return submit(values, `${consts.OAPI_URL}/signup`)
 }
 
 
 function submit(values, url) {
+   
     return dispatch => {
         axios.post(url, values)
             .then(resp => {
