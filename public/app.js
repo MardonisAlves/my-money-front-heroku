@@ -44800,7 +44800,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var BASE_URL = 'http://localhost:3003/api';
+	var BASE_URL = 'https://moneycycle.herokuapp.com/api';
 
 	function getSummary() {
 	    var request = _axios2.default.get(BASE_URL + '/billingCycles/summary');
