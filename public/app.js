@@ -45342,7 +45342,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var BASE_URL = 'http://localhost:3003/api';
+	var BASE_URL = 'https://moneycycle.herokuapp.com/api';
 	var INITIAL_VALUES = { credits: [{}], debts: [{}] };
 
 	function getList() {
